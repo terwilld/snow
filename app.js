@@ -5,13 +5,14 @@ const userRoutes = require('./routes/users.js')
 const path = require('path')
 const ejsMate = require('ejs-mate');
 
+require('dotenv').config()
 
 
 
 
 
 const app = express();
-app.use(express.static(path.join(__dirname, 'public')))
+app.use(express.static(path.join(__dirname, 'public/')))
 app.engine('ejs', ejsMate)
 app.set('view engine', 'ejs')
 

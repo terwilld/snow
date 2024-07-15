@@ -13,6 +13,9 @@ router.get('/', userControllers.users)
 
 router.get('/get/:id', userControllers.showuser)
 
+router.get('/delete/:id', userControllers.deleteuser)
+
+
 
 
 module.exports = router;
