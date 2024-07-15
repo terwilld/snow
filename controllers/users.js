@@ -79,6 +79,29 @@ module.exports.deleteuser = async (req, res) => {
     }
 }
 
+module.exports.newuser = async (req, res) => {
+    res.render('users/newuser.ejs')
+}
+
+
+module.exports.postnewuser = async (req, res) => {
+    console.log(req.body)
+    const data = await axios.post(
+        `https://dev204219.service-now.com/api/now/table/sys_user?sysparm_input_display_value=true`,
+        {
+            user_name: req.body.user.user_name,
+            user_password: req.body.user.user_password,
+            password_needs_reset: false,
+            email: req.body.user.email,
+            phone: req.body.user.phone
+        },
+        {
+            headers: { "Accept": "application/json", "Content-Type": "application/json", "Authorization": ("Basic " + new Buffer(`admin:${SNOWpw}`).toString('base64')) }
+        }
+    )
+    //console.log(data.data.result.sys_id)
+    res.redirect(`/users/get/${data.data.result.sys_id}`)
+}
 
 
 

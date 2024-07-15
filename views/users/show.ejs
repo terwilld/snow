@@ -26,11 +26,9 @@
 
                 <!-- <h5>user owns this post</h5> -->
                 <a href="/users/edit/<%= user.sys_id%>" class="card-link btn btn-warning">Edit</a>
-                <form class="card-link ml-5 pl-5 d-inline" action="/campgrounds//?_method=DELETE" method="post">
+                <form class="card-link ml-5 pl-5 d-inline" action="/users/delete/<%= user.sys_id%>" method="get">
                     <button class="card-link btn btn-danger d-inline">Delete</button>
                 </form>
-
-
 
             </div>
             <div class=" card-footer text-muted ">

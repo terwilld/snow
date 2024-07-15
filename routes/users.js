@@ -15,7 +15,9 @@ router.get('/get/:id', userControllers.showuser)
 
 router.get('/delete/:id', userControllers.deleteuser)
 
+router.get('/new', userControllers.newuser)
 
+router.post('/', userControllers.postnewuser)
 
 
 module.exports = router;
