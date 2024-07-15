@@ -19,9 +19,9 @@ jQuery(document).ready(function ($) {
             '?</p > ' +
             '<ul class="cd-buttons">' +
             '<li><a href="/users/delete/' + id + '">Yes</a></li>' +
-            '<li><a href="#0">No</a></li>' +
+            '<li><a href="/users/">No</a></li>' +
             '</ul>' +
-            '<a href="#0" class="cd-popup-close img-replace">Close</a>' +
+            '<a href="/users/" class="cd-popup-close img-replace">Close</a>' +
             '</div>' +
             '</div>'
 
