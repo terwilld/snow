@@ -2,6 +2,7 @@ const express = require('express');
 
 const indexRoutes = require('./routes/index.js')
 const userRoutes = require('./routes/users.js')
+const CJRoutes = require('./routes/cj.js')
 const path = require('path')
 const ejsMate = require('ejs-mate');
 const bodyParser = require('body-parser');
@@ -24,6 +25,7 @@ app.set('view engine', 'ejs')
 
 app.use('/', indexRoutes)
 app.use('/users', userRoutes)
+app.use('/cj', CJRoutes)
 
 
 app.listen(3000, () => {

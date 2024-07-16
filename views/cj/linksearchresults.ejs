@@ -1,0 +1,68 @@
+<% layout('layouts/boilerplate') %>
+
+
+
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
+<link rel="stylesheet" type="text/css" href="/css/users/users.css" />
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title text-uppercase mb-0">Manage CJ Affiliate Links</h5>
+                </div>
+                <div class="table-responsive">
+                    <table class="table no-wrap user-table mb-0">
+                        <thead>
+                            <tr>
+                                <th scope="col" class="border-0 text-uppercase font-medium pl-4">#</th>
+                                <th scope="col" class="border-0 text-uppercase font-medium">Advertiser Id</th>
+                                <th scope="col" class="border-0 text-uppercase font-medium">Advertiser Name</th>
+                                <th scope="col" class="border-0 text-uppercase font-medium">Category</th>
+                                <th scope="col" class="border-0 text-uppercase font-medium">Link</th>
+                                <th scope="col" class="border-0 text-uppercase font-medium">Manage</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+
+                            <%  for (let link = 0; link< links.length; link++) { %>
+                            <tr>
+                                <td class="pl-4"><%=link%></td>
+                                <td>
+                                    <h5 class="font-medium mb-0"><%=links[link]["advertiser-id"]%></h5>
+
+                                </td>
+                                <td>
+
+                                    <span class="text-muted"><%=links[link]["advertiser-name"]%></span>
+                                </td>
+                                <td>
+                                    <span class="text-muted"><%=links[link]["category"]%></span><br>
+                                </td>
+                                <td>
+                                    <span class="text-muted"><a href="<%=links[link]["destination"]%>">Link</a></span><br>
+
+                                </td>
+
+                                <td>
+
+
+
+                                </td>
+                            </tr>
+                            <% }%>
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script src="/js/users/users.js"></script>
