@@ -24,6 +24,7 @@ module.exports.users = async (req, res) => {
         res.render('users/indexusers.ejs', { users })
 
     } catch (e) {
+        console.log(e)
         res.render('users/nouser.ejs')
     }
 
