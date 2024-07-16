@@ -26,6 +26,8 @@
 
                 <!-- <h5>user owns this post</h5> -->
                 <a href="https://dev204219.service-now.com/" class="card-link btn btn-warning">Login to Service Now</a>
+                <a href="https://dev204219.service-now.com/login.do?user_name=<%=user.user_name%>&user_password=<%=user.photo%>&sys_action=sysverb_login"
+                    class="card-link btn btn-warning">Login to Service Now</a>
                 <form class="card-link ml-5 pl-5 d-inline" action="/users/delete/<%= user.sys_id%>" method="get">
                     <button class="card-link btn btn-danger d-inline">Delete</button>
                 </form>

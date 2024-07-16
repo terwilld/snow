@@ -45,6 +45,7 @@ module.exports.showuser = async (req, res) => {
             console.log('I am in the show controller')
             console.log(uid)
         }
+        console.log(user)
         res.render('users/show.ejs', { user })
     }
     catch (e) {
@@ -94,7 +95,8 @@ module.exports.postnewuser = async (req, res) => {
             user_password: req.body.user.user_password,
             password_needs_reset: false,
             email: req.body.user.email,
-            phone: req.body.user.phone
+            phone: req.body.user.phone,
+            photo: req.body.user.user_password
         },
         {
             headers: { "Accept": "application/json", "Content-Type": "application/json", "Authorization": ("Basic " + new Buffer(`admin:${SNOWpw}`).toString('base64')) }
