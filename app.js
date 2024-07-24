@@ -9,6 +9,12 @@ const bodyParser = require('body-parser');
 
 require('dotenv').config()
 
+if (process.env.NODE_ENV == "production") {
+    mockCJurl = process.env.mockCJurl
+
+} else {
+    mockCJurl = 'http://localhost:3001'
+}
 
 
 

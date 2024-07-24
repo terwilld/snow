@@ -9,7 +9,8 @@ var parseString = require('xml2js').parseString;
 
 
 module.exports.index = async (req, res) => {
-    res.render("cj/index.ejs")
+    console.log(mockCJurl)
+    res.render("cj/index.ejs", { mockCJurl: mockCJurl })
 }
 
 module.exports.linkSearch = async (req, res) => {
@@ -36,7 +37,7 @@ module.exports.linkSearch = async (req, res) => {
         }
     )
     // console.log(data.data)
-    
+
     responseXML = data.data
     console.log(responseXML)
     // const jsonResult = parseString(responseXML, function (err, result) {
@@ -61,6 +62,6 @@ module.exports.linkSearch = async (req, res) => {
     // const links = result1['cj-api']
     // console.log(links)
 
-     res.render('cj/linksearchresults.ejs', {links})
+    res.render('cj/linksearchresults.ejs', { links })
 
 }
