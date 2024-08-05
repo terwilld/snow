@@ -1,5 +1,7 @@
 
 const axios = require('axios')
+const snowUser = require('../models/snowUsers')
+
 require('dotenv').config()
 const SNOWpw = process.env.SNOWpw;
 // console.log(SNOWpw)
@@ -14,12 +16,16 @@ function compare(a, b) {
     return 0;
 }
 module.exports.users = async (req, res) => {
+    let users
     try {
         const data = await axios.get(
             'https://dev204219.service-now.com/api/now/table/sys_user',
             { headers: { "Accept": "application/json", "Content-Type": "application/json", "Authorization": ("Basic " + new Buffer(`admin:${SNOWpw}`).toString('base64')) } }
         )
-        const users = data.data.result
+        //console.log(data)
+        users = data.data.result
+
+
         users.sort(compare)
         res.render('users/indexusers.ejs', { users })
 
@@ -27,6 +33,25 @@ module.exports.users = async (req, res) => {
         console.log(e)
         res.render('users/nouser.ejs')
     }
+    for (const user of users) {
+        let foundUser = await snowUser.findOne({ sys_id: user.sys_id })
+        if (foundUser == null) {
+
+            newUser = new snowUser({ sys_id: user.sys_id, name: user.name })
+            if (newUser.name == '') {
+                newUser.name = ' '
+            }
+            await newUser.save()
+        }
+
+    }
+
+
+
+
+
+
+
 
 }
 

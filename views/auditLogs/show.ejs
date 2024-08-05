@@ -1,0 +1,43 @@
+<% layout('layouts/boilerplate') %>
+
+<div class="row align-items-center justify-content-center">
+    <div class="col-6 align-items-center justify-content-center">
+
+
+
+        <div class="card">
+
+            <div class="card-body">
+                <h5 class="card-title">DB User Name: <%= newLog.dbusername%></h5>
+            </div>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">Object: <%= newLog.object %></li>
+                <li class="list-group-item">Verb: <%= newLog.verb%></li>
+                <li class="list-group-item">Server IP: <%= newLog.serverIP%></li>
+                <li class="list-group-item">Client IP: <%= newLog.clientIP%></li>
+                <li class="list-group-item">Full SQL: <%= newLog.sql%></li>
+
+            </ul>
+            <div class="card-body">
+                <a href="/users/" class="card-link btn btn-primary">All Users</a>
+
+                <!-- NEEDS TO BE DELETED -->
+
+
+                <!-- <h5>user owns this post</h5> -->
+                <a href="https://dev204219.service-now.com/login.do?user_name=<%=newLog.user_name%>&user_password=<%=newLog.photo%>&sys_action=sysverb_login"
+                    class="card-link btn btn-warning">Login to Service Now</a>
+                <form class="card-link ml-5 pl-5 d-inline" action="/users/delete/<%= newLog.sys_id%>" method="get">
+                    <button class="card-link btn btn-danger d-inline">Delete</button>
+                </form>
+
+            </div>
+            <div class=" card-footer text-muted ">
+                Logged On: <%= newLog.timeLogged%> <br><br>
+                Activity Timestamp: <%= newLog.timestamp %>
+            </div>
+        </div>
+    </div>
+
+
+</div>

@@ -1,0 +1,88 @@
+<% layout('layouts/boilerplate') %>
+
+<div class="row">
+    <div class="col-6 offset-3">
+        <h1 class="text-center">New Audit Log</h1>
+        <!-- <form action="/campgrounds" method="post" novalidate class="validated-form"> -->
+        <form action="/audit_logs" method="post" novalidate class="validated-form">
+            <div class="mb-3">
+                <label class="form-label" for="title">DB User Name:</label>
+                <input class="form-control" type="text" name="auditLog[dbusername]" id="title" required>
+                <div class="valid-feedback">
+                    Looks Good!
+                </div>
+                <div class="invalid-feedback">
+                    Please enter a name!
+                </div>
+            </div>
+
+
+            <div class="mb-3">
+                <label class="form-label" for="location">Server IP:</label>
+                <input class="form-control" type="text" name="auditLog[serverIP]" id="location" required>
+                <div class="valid-feedback">
+                    Looks Good!
+                </div>
+                <div class="invalid-feedback">
+                    Please enter a Location
+                </div>
+            </div>
+
+
+            <div class="mb-3">
+                <label class="form-label" for="location">Client IP:</label>
+                <input class="form-control" type="text" name="auditLog[clientIP]" id="location" required>
+                <div class="valid-feedback">
+                    Looks Good!
+                </div>
+                <div class="invalid-feedback">
+                    Please enter a Location
+                </div>
+            </div>
+
+
+            <div class="mb-3">
+                <label class="form-label" for="location">Object:</label>
+                <input class="form-control" type="text" name="auditLog[object]" id="location" required>
+                <div class="valid-feedback">
+                    Looks Good!
+                </div>
+                <div class="invalid-feedback">
+                    Please enter a Location
+                </div>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label" for="location">Verb:</label>
+                <input class="form-control" type="text" name="auditLog[verb]" id="location" required>
+                <div class="valid-feedback">
+                    Looks Good!
+                </div>
+                <div class="invalid-feedback">
+                    Please enter a Location
+                </div>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label" for="location">Full SQL:</label>
+                <input class="form-control" type="text" name="auditLog[sql]" id="location" required>
+                <div class="valid-feedback">
+                    Looks Good!
+                </div>
+                <div class="invalid-feedback">
+                    Please enter a Location
+                </div>
+            </div>
+
+
+            <div class="mb-3">
+                <button class="btn btn-success mb-3" type="submit">Add Audit Log</button>
+            </div>
+
+        </form>
+
+        <a class="btn btn-primary" href="/audit_logs/">Back to All Audit Logs</a>
+    </div>
+</div>
+
+<script src="/js/validateForms.js"></script>
