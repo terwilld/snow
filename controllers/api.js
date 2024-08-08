@@ -24,6 +24,10 @@ module.exports.updaterecordsnowid = async (req, res) => {
         auditlog = await auditLogs.findOne({ _id: oid })
         console.log(auditlog)
         auditlog.snowID = req.body.sysid
+        console.log("This is my req.body: ")
+        console.log(req.body)
+        console.log("This is my sysid in req body: " + req.body.sysid)
+
         await auditlog.save()
         console.log(auditlog)
         res.send("record was updated")
