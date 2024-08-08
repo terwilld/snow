@@ -9,3 +9,9 @@ module.exports.newAuditLogs = async (req, res) => {
     res.send(noSnowID)
 }
 
+
+module.exports.updaterecordsnowid = async (req, res) => {
+    console.log("Hit this end point")
+    res.send("LOL")
+}
+
