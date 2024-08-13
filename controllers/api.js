@@ -1,35 +1,20 @@
-
+const auditLogs = require('../models/auditLogs.js')
 
 
 module.exports.newAuditLogs = async (req, res) => {
-    //res.send("Derp")
-    const auditLogs = require('../models/auditLogs.js')
     noSnowID = await auditLogs.find({ snowID: null })
-
     res.send(noSnowID)
 }
 
 
 module.exports.updaterecordsnowid = async (req, res) => {
     console.log("Hit this end point")
-    const auditLogs = require('../models/auditLogs.js')
-
-    console.log(req.body)
-    console.log(req.params)
     const oid = req.params.id
     console.log(oid)
-
-
     try {
         auditlog = await auditLogs.findOne({ _id: oid })
-        console.log(auditlog)
         auditlog.snowID = req.body.sysid
-        console.log("This is my req.body: ")
-        console.log(req.body)
-        console.log("This is my sysid in req body: " + req.body.sysid)
-
         await auditlog.save()
-        console.log(auditlog)
         res.send("record was updated")
     } catch (e) {
         console.log(e)
@@ -38,3 +23,35 @@ module.exports.updaterecordsnowid = async (req, res) => {
 
 }
 
+module.exports.updaterecordsnowidwithid = async (req, res) => {
+    console.log("Hit second endpoint")
+    const oid = req.params.id
+    const sysid = req.params.sysid
+    try {
+        auditlog = await auditLogs.findOne({ _id: oid })
+        auditlog.snowID = sysid
+        await auditlog.save()
+        console.log(auditlog)
+
+    } catch (e) {
+
+    }
+
+    res.send("Hit second end point")
+}
+
+
+module.exports.updatesysid = async (req, res) => {
+    console.log(req.params)
+    auditLog = await auditLogs.findOne({ _id: req.params.id })
+    console.log(auditLog)
+    console.log("My audit log")
+    if (auditLog == null) {
+        res.send("No record to update")
+    } else {
+        auditLog.snowID = req.params.sysid
+        console.log(auditLog)
+        res.send(auditLog)
+    }
+
+}

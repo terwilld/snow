@@ -1,12 +1,12 @@
 const snowUser = require('../models/snowUsers')
-
+const auditLog = require('../models/auditLogs')
 
 module.exports.index = async (req, res) => {
     let snowUsers = await snowUser.countDocuments({})
+    let auditLogs = await auditLog.countDocuments({})
 
-    console.log(snowUsers)
 
-    res.render('index.ejs', { snowUsers })
+    res.render('index.ejs', { snowUsers, auditLogs })
 }
 
 

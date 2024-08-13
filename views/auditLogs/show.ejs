@@ -8,33 +8,30 @@
         <div class="card">
 
             <div class="card-body">
-                <h5 class="card-title">DB User Name: <%= newLog.dbusername%></h5>
+                <h5 class="card-title">DB User Name: <%= foundauditLog.dbusername%></h5>
             </div>
             <ul class="list-group list-group-flush">
-                <li class="list-group-item">Object: <%= newLog.object %></li>
-                <li class="list-group-item">Verb: <%= newLog.verb%></li>
-                <li class="list-group-item">Server IP: <%= newLog.serverIP%></li>
-                <li class="list-group-item">Client IP: <%= newLog.clientIP%></li>
-                <li class="list-group-item">Full SQL: <%= newLog.sql%></li>
+                <li class="list-group-item">Object: <%= foundauditLog.object %></li>
+                <li class="list-group-item">Verb: <%= foundauditLog.verb%></li>
+                <li class="list-group-item">Server IP: <%= foundauditLog.serverIP%></li>
+                <li class="list-group-item">Client IP: <%= foundauditLog.clientIP%></li>
+                <li class="list-group-item">Full SQL: <%= foundauditLog.sql%></li>
 
             </ul>
             <div class="card-body">
-                <a href="/users/" class="card-link btn btn-primary">All Users</a>
-
-                <!-- NEEDS TO BE DELETED -->
+                <a href="/audit_logs/" class="card-link btn btn-primary">All Logs</a>
 
 
-                <!-- <h5>user owns this post</h5> -->
-                <a href="https://dev204219.service-now.com/login.do?user_name=<%=newLog.user_name%>&user_password=<%=newLog.photo%>&sys_action=sysverb_login"
-                    class="card-link btn btn-warning">Login to Service Now</a>
-                <form class="card-link ml-5 pl-5 d-inline" action="/users/delete/<%= newLog.sys_id%>" method="get">
+
+                <form class="card-link ml-5 pl-5 d-inline" action="/audit_logs/delete/<%= foundauditLog._id%>"
+                    method="get">
                     <button class="card-link btn btn-danger d-inline">Delete</button>
                 </form>
 
             </div>
             <div class=" card-footer text-muted ">
-                Logged On: <%= newLog.timeLogged%> <br><br>
-                Activity Timestamp: <%= newLog.timestamp %>
+                Logged On: <%= foundauditLog.timeLogged%> <br><br>
+                Activity Timestamp: <%= foundauditLog.timestamp %>
             </div>
         </div>
     </div>

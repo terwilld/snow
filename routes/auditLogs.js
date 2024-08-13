@@ -12,4 +12,8 @@ router.post('/', auditLogsControllers.newLog)
 
 router.get('/get/:id', auditLogsControllers.showLog)
 
+router.get("/delete/:id", auditLogsControllers.delete)
+
+
+
 module.exports = router;

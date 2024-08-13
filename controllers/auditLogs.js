@@ -1,34 +1,49 @@
 
-const auditLogs = require('../models/auditLogs.js')
+const auditLog = require('../models/auditLogs.js')
 
 
 
 module.exports.index = async (req, res) => {
-    //res.send("Derp")
-    res.render('auditLogs/index.ejs', { auditLogs: [] })
+
+    auditLogs = await auditLog.find({})
+
+    res.render('auditLogs/index.ejs', { auditLogs })
 }
 
+
+
+
 module.exports.new = async (req, res) => {
+
     res.render('auditLogs/new.ejs')
+
 }
 
 
 
 module.exports.showLog = async (req, res) => {
+
     const id = req.params.id
-    newLog = await auditLogs.findOne({ _id: id })
-    console.log(newLog)
-    res.render('auditLogs/show.ejs', { newLog })
-    // res.send("New log")
+    foundauditLog = await auditLog.findOne({ _id: id })
+
+    res.render('auditLogs/show.ejs', { foundauditLog })
 }
 
+
+module.exports.delete = async (req, res) => {
+
+    let id = req.params.id
+    foundauditLog = await auditLog.deleteOne({ _id: id })
+
+    res.redirect('/audit_logs')
+}
+
+
+
 module.exports.newLog = async (req, res) => {
-    console.log(req.body)
-    let newLog = new auditLogs(req.body.auditLog)
-    console.log(newLog)
+
+    let newLog = new auditLog(req.body.auditLog)
     await newLog.save()
-    //res.send("test")
-    //console.log(data.data.result.sys_id)
-    console.log(newLog.id)
+
     res.redirect(`/audit_logs/get/${newLog.id}`)
 }

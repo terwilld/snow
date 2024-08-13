@@ -3,7 +3,6 @@ const Schema = mongoose.Schema
 
 
 const auditLog = new Schema({
-
     dbusername: {
         type: String,
         required: true
@@ -36,6 +35,5 @@ const auditLog = new Schema({
         default: Date.now() - 4 * 24 * 60 * 30 * 1000
     }
 })
-
 
 module.exports = mongoose.model('AuditLog', auditLog)
