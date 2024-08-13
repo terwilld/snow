@@ -43,15 +43,19 @@ module.exports.updaterecordsnowidwithid = async (req, res) => {
 
 module.exports.updatesysid = async (req, res) => {
     console.log(req.params)
-    auditLog = await auditLogs.findOne({ _id: req.params.id })
-    console.log(auditLog)
-    console.log("My audit log")
-    if (auditLog == null) {
-        res.send("No record to update")
-    } else {
-        auditLog.snowID = req.params.sysid
+    try {
+        auditLog = await auditLogs.findOne({ _id: req.params.id })
         console.log(auditLog)
-        res.send(auditLog)
+        console.log("My audit log")
+        if (auditLog == null) {
+            res.send("No record to update")
+        } else {
+            auditLog.snowID = req.params.sysid
+            console.log(auditLog)
+            res.send(auditLog)
+        }
     }
-
+    catch (e) {
+        res.send("Bad id")
+    }
 }
