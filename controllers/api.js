@@ -52,6 +52,7 @@ module.exports.updatesysid = async (req, res) => {
         } else {
             auditLog.snowID = req.params.sysid
             console.log(auditLog)
+            await auditLog.save()
             res.send(auditLog)
         }
     }
