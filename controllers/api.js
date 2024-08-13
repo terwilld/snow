@@ -7,38 +7,38 @@ module.exports.newAuditLogs = async (req, res) => {
 }
 
 
-module.exports.updaterecordsnowid = async (req, res) => {
-    console.log("Hit this end point")
-    const oid = req.params.id
-    console.log(oid)
-    try {
-        auditlog = await auditLogs.findOne({ _id: oid })
-        auditlog.snowID = req.body.sysid
-        await auditlog.save()
-        res.send("record was updated")
-    } catch (e) {
-        console.log(e)
-        res.send("Record was not updated")
-    }
+// module.exports.updaterecordsnowid = async (req, res) => {
+//     console.log("Hit this end point")
+//     const oid = req.params.id
+//     console.log(oid)
+//     try {
+//         auditlog = await auditLogs.findOne({ _id: oid })
+//         auditlog.snowID = req.body.sysid
+//         await auditlog.save()
+//         res.send("record was updated")
+//     } catch (e) {
+//         console.log(e)
+//         res.send("Record was not updated")
+//     }
 
-}
+// }
 
-module.exports.updaterecordsnowidwithid = async (req, res) => {
-    console.log("Hit second endpoint")
-    const oid = req.params.id
-    const sysid = req.params.sysid
-    try {
-        auditlog = await auditLogs.findOne({ _id: oid })
-        auditlog.snowID = sysid
-        await auditlog.save()
-        console.log(auditlog)
+// module.exports.updaterecordsnowidwithid = async (req, res) => {
+//     console.log("Hit second endpoint")
+//     const oid = req.params.id
+//     const sysid = req.params.sysid
+//     try {
+//         auditlog = await auditLogs.findOne({ _id: oid })
+//         auditlog.snowID = sysid
+//         await auditlog.save()
+//         console.log(auditlog)
 
-    } catch (e) {
+//     } catch (e) {
 
-    }
+//     }
 
-    res.send("Hit second end point")
-}
+//     res.send("Hit second end point")
+// }
 
 
 module.exports.updatesysid = async (req, res) => {
