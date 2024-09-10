@@ -4,6 +4,7 @@ const indexRoutes = require('./routes/index.js')
 const userRoutes = require('./routes/users.js')
 const CJRoutes = require('./routes/cj.js')
 const AuditLogs = require('./routes/auditLogs.js')
+const Traccar = require('./routes/traccar.js')
 const API = require('./routes/api.js')
 const path = require('path')
 const ejsMate = require('ejs-mate');
@@ -45,6 +46,8 @@ app.use('/users', userRoutes)
 app.use('/cj', CJRoutes)
 app.use('/audit_logs', AuditLogs)
 app.use('/api', API)
+app.use('/traccar', Traccar)
+
 app.listen(3000, () => {
     console.log('app is running on 3000')
 })

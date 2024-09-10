@@ -1,0 +1,63 @@
+<% layout('layouts/boilerplate') %>
+
+<div class="row">
+    <div class="col-6 offset-3">
+        <h1 class="text-center">New Device</h1>
+        <!-- <form action="/campgrounds" method="post" novalidate class="validated-form"> -->
+        <form action="/traccar/createdeviceui" method="post" novalidate class="validated-form">
+            <div class="mb-3">
+                <label class="form-label" for="title">Name:</label>
+                <input class="form-control" type="text" name="device[name]" id="title" required>
+                <div class="valid-feedback">
+                    Looks Good!
+                </div>
+                <div class="invalid-feedback">
+                    Please enter a Name!
+                </div>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label" for="location">Unique Id:</label>
+                <input class="form-control" type="text" name="device[unique_id]" id="location" required>
+                <div class="valid-feedback">
+                    Looks Good!
+                </div>
+                <div class="invalid-feedback">
+                    Please enter a Unique Id
+                </div>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label" for="location">Model:</label>
+                <input class="form-control" type="text" name="device[model]" id="location" required>
+                <div class="valid-feedback">
+                    Looks Good!
+                </div>
+                <div class="invalid-feedback">
+                    Please enter a Model
+                </div>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label" for="location">Email:</label>
+                <input class="form-control" type="text" name="device[email]" id="location" required>
+                <div class="valid-feedback">
+                    Looks Good!
+                </div>
+                <div class="invalid-feedback">
+                    Please enter an Email
+                </div>
+            </div>
+
+
+            <div class="mb-3">
+                <button class="btn btn-success mb-3" type="submit">Add Device</button>
+            </div>
+
+        </form>
+
+        <a class="btn btn-primary" href="/traccar/">Back to All Devices</a>
+    </div>
+</div>
+
+<script src="/js/validateForms.js"></script>
